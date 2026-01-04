@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+.wwebjs_cache/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/

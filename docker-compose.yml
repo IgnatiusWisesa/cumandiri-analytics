@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  app:
+    container_name: 'groapi-main'
+    build: .
+    volumes:
+      - .:/groapi-main
+      - node_modules:/groapi-main/node_modules
+    ports:
+      - 2119:2119
+    stdin_open: true
+    restart: always
+    environment:
+      - PORT=${PORT}
+      - application_json=application/json
+      - application_url_encoded=application/x-www-form-urlencoded
+      - MONGO_CONNECTION_STRING=${MONGO_CONNECTION_STRING}
+      - COBROKE_PACKAGE=${COBROKE_PACKAGE}
+      - JWT_SECRET=${JWT_SECRET}
+      - CLIENT_KEY=${CLIENT_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+      - API_URL_PAYMENT=${API_URL_PAYMENT}
+      - API_URL_GROCHAT=${API_URL_GROCHAT}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - SLACK_WEBHOOK_NOTIF_URL=${SLACK_WEBHOOK_NOTIF_URL}
+    command: yarn run start
+volumes:
+  node_modules:

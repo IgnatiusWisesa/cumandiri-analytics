@@ -1,0 +1,1 @@
+export type JenisSimpanan = 'SJTA' | 'SSKA' | 'SMP' | 'SPJ';
